@@ -1,0 +1,3 @@
+[submodule "third-party/libsml"]
+	path = third-party/libsml
+	url = https://github.com/volkszaehler/libsml.git

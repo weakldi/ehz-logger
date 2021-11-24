@@ -1,0 +1,19 @@
+
+cmake_minimum_required(VERSION 3.10)
+
+# set the project name
+project(ehz-logger)
+
+add_custom_target(libsml 
+    COMMAND make all
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml
+)
+
+set(src_files 
+    main.c
+)
+
+add_executable(ehz-logger ${src_files})
+
+target_link_libraries(ehz-logger ${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/lib/libsml.a)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/include)
