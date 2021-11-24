@@ -13,7 +13,10 @@ set(src_files
     main.c
 )
 
+message(${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/include)
 add_executable(ehz-logger ${src_files})
 
+
 target_link_libraries(ehz-logger ${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/lib/libsml.a)
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/include)
+target_link_libraries(ehz-logger uuid)
+target_include_directories(ehz-logger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/third-party/libsml/sml/include)
